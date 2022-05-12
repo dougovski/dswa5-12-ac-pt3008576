@@ -18,6 +18,17 @@ module.exports = function() {
         if(erro)
         console.log(erro);
         return done(erro);
+          
+        passport.serializeUser(function(usuario, done) {
+        done(null, usuario._id);
+        });
+          
+        passport.deserializeUser(function(id, done) {
+        Usuario.findById(id).exec()
+        .then(function(usuario) {
+        done(null, usuario);
+       });
+      });
   }
         return done(null, usuario);
       }
