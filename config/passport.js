@@ -18,7 +18,6 @@ module.exports = function() {
         if(erro)
         console.log(erro);
         return done(erro);
-          
         passport.serializeUser(function(usuario, done) {
         done(null, usuario._id);
         });
