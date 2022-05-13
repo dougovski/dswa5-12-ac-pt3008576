@@ -13,5 +13,12 @@ module.exports = function(app) {
         // renderiza auth.ejs
          res.render("auth");
     }
+        
+    app.get('/logout', function(req, res) {
+	req.logOut(); // exposto pelo passport
+	res.redirect('/');
+	});
+
     });
+
 }
