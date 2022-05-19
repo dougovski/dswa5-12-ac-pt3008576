@@ -7,9 +7,9 @@ module.exports = function() {
     var Usuario = mongoose.model('Usuario');
 
     passport.use(new GitHubStrategy({
-        clientID: '9a6541b4866641c3e086',
-        clientSecret: '2040ec95f5e9c97052e283fa99c41fbda0bca214',
-        callbackURL: 'https://dswa5-11-ac-pt3008576.herokuapp.com/auth/github/callback'
+        clientID: '854aaaa1e4604c700f40',
+        clientSecret: '2a308dd3da8b0b4e6fa24bac4ed74585f80356f5',
+        callbackURL: 'https://dswa5-12-ac-pt3008576.herokuapp.com/auth/github/callback'
         }, function(accessToken, refreshToken, profile, done) {
                 Usuario.findOrCreate(
                     { "login" : profile.username},
