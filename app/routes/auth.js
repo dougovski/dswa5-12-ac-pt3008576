@@ -2,23 +2,17 @@ module.exports = function(app) {
     app.get('/auth/github', passport.authenticate('github'));
     app.get('/auth/github/callback',
     passport.authenticate('github', {
-     successRedirect: '/'
-  }));
-    
+    successRedirect: '/'
+    }));
     app.get('/', function(req, res, next) {
-    if(req.isAuthenticated()) {
-        // permite que outras rotas sejam processadas
-        return next();
-    } else {
-        // renderiza auth.ejs
-         res.render("auth");
-    }
-        
-    app.get('/logout', function(req, res) {
-	req.logOut(); // exposto pelo passport
-	res.redirect('/');
-	});
-
+        if(req.isAuthenticated()) {
+            return next();
+        } else {
+        res.render("auth");
+        }
     });
-
+    app.get('/logout', function(req, res){
+        req.logOut;
+        res.redirect('/');
+    });
 }
