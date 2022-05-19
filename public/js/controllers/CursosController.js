@@ -3,6 +3,7 @@ angular.module('ifsp').controller('CursosController',
         $scope.cursos = [];
         $scope.filtro = '';
         $scope.mensagem = { texto: '' };
+        //var Curso = $resource('/cursos/:id');
 
         function buscaCursos() {
             Curso.query(
