@@ -2,6 +2,14 @@ module.exports = function(app) {
     var Contato = app.models.contato;
     var controller = {};
 
+    function verificaAutenticacao(req, res, next) {
+    if (req.isAuthenticated()) {
+    return next();
+    } else {
+    res.status('401').json('Não autorizado');
+    }
+    }
+    
     controller.listaContatos = function(req, res) {
         Contato.find().exec().then(
             function(contatos) {
