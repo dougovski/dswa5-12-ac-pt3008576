@@ -1,6 +1,7 @@
 angular.module('ifsp').controller('ContatoController',
     function($scope, $routeParams, Contato) {
         //var Contato = $resource('/contatos/:id');
+
         if ($routeParams.contatoId) {
             Contato.get({ id: $routeParams.contatoId },
                 function(contato) {
@@ -25,4 +26,4 @@ angular.module('ifsp').controller('ContatoController',
                     $scope.mensagem = { texto: 'Não foi possível salvar' };
                 });
         };
-    });
+});
