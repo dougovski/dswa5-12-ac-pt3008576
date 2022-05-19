@@ -2,8 +2,6 @@ module.exports = function(app) {
     var Contato = app.models.contato;
     var controller = {};
     var verificaAutenticacao = require('../../config/auth');
-
-module.exports = function (app) {
     var controller = app.controllers.contato;
     app.route('/contatos')
         .get(verificaAutenticacao, controller.listaTodos)
